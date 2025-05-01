@@ -31,6 +31,7 @@ jobs:
           since: '${{ env.SINCE }}T00:00:00Z'
           until: '${{ env.UNTIL }}T23:59:59Z'
           analyze-commits: 'true'
+          analyze-commits-on-all-branches: 'true'
           create-json: 'data.json'
 
       - name: Upload Report Artifact
