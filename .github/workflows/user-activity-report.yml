@@ -1,6 +1,9 @@
 name: 'User Activity Report'
 
 on:
+  schedule:
+    # Every Thursday 19:00 KST → 10:00 UTC
+    - cron: '0 10 * * 4'
   workflow_dispatch:
 
 jobs:
@@ -27,6 +30,7 @@ jobs:
           organization: 'tokamak-network'
           since: '${{ env.SINCE }}T00:00:00Z'
           until: '${{ env.UNTIL }}T23:59:59Z'
+          analyze-commits: 'true'
           create-json: 'data.json'
 
       - name: Upload Report Artifact
